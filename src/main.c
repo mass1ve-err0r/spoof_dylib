@@ -4,11 +4,19 @@
 #include "../includes/main.h"
 
 
-__attribute__((noreturn)) void help(void) {
-    LOG_INFO("spoof_dylib version %s", SPOOF_DYLIB_VERSION);
-    LOG_INFO("Usage: spoof_dylib <absolute_dylib_path> <new_hex_uuid>\n");
-    exit(INVALID_ARGUMENT_NUMBER);
-}
+#ifdef __WIN32
+    void help() {
+        LOG_INFO("spoof_dylib version %s", SPOOF_DYLIB_VERSION);
+        LOG_INFO("Usage: spoof_dylib <absolute_dylib_path> <new_hex_uuid>\n");
+        exit(INVALID_ARGUMENT_NUMBER);
+    }
+#else
+    __attribute__((noreturn)) void help(void) {
+        LOG_INFO("spoof_dylib version %s", SPOOF_DYLIB_VERSION);
+        LOG_INFO("Usage: spoof_dylib <absolute_dylib_path> <new_hex_uuid>\n");
+        exit(INVALID_ARGUMENT_NUMBER);
+    }
+#endif
 
 void overwrite_uuid() {
     fseek(dylib_handle, -16, SEEK_CUR);
