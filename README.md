@@ -23,7 +23,7 @@ This had me curious if two object files can have the same _internal_ identifier 
 Test were done on the following devices:
 - iPhone 5 _(arm v7, jailbroken and non-jailbroken)_
 - iPhone 8 _(arm64, jailbroken and non-jailbroken)_
-- iPhone XS Max (arm64e, jailbroken and non-jailbroken)
+- iPhone XS Max _(arm64e, jailbroken and non-jailbroken)_
 - macOS Catalina _(x64)_
 
 From my testing this hasn't caused any issues so far nor conflicts, which means this segment _can_ be freely altered for other purposes!
